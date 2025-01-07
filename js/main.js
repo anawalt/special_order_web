@@ -32,9 +32,15 @@ function cardGenerator(data){
             <img loading="lazy" class="card-img-top" src="https://placehold.co/200x200" alt="Card image">
             <div class="card-body">
                 <h4 class="card-title">${data.Description}</h4>
-                <p class="card-text">SKU: ${data.SKU}</p>
-                <p class="card-text">Quantity On Hand: ${data.QOH}</p>
-                <p class="card-text">Price : $${data.Retail}</p>
+		<div class="row">
+		    <div class="col">
+ 		    	<p class="card-text">SKU: ${data.SKU}</p>
+		    </div>
+	            <div class="col">
+ 		    	<p class="card-text">Quantity: ${data.QOH}</p>
+		    </div>		
+		</div>
+                <p class="card-subtitle">Price : $${data.Retail}</p>
             </div>
         </div>
     `

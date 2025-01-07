@@ -28,19 +28,24 @@ function cardGenerator(data){
     const newDiv = document.createElement('div');
     newDiv.classList.add('col', 'mb-5');
     newDiv.innerHTML = `
-        <div class="card h-100">
-            <img loading="lazy" class="card-img-top" src="https://placehold.co/200x200" alt="Card image">
+        <div class="card h-100 text-center">
+            <img loading="lazy" class="card-img-top" src="https://placehold.co/200x200/708090/ffffff" alt="Card image">
+	    <div class="card-header">
+	        <h4 class="card-title">${data.Description}</h4>
+		</div>
             <div class="card-body">
-                <h4 class="card-title">${data.Description}</h4>
+                
 		<div class="row">
 		    <div class="col">
- 		    	<p class="card-text">SKU: ${data.SKU}</p>
+			<p class="card-text fw-bold mb-1">SKU</p>
+ 		    	<p class="lead">${data.SKU}</p>
 		    </div>
 	            <div class="col">
- 		    	<p class="card-text">Qty: ${data.QOH}</p>
+			<p class="card-text fw-bold mb-1">Quantity</p>
+ 		    	<p class="lead">${data.QOH}</p>
 		    </div>		
 		</div>
-                <p class="card-subtitle">Price : $${data.Retail}</p>
+                <h3>Price : $${data.Retail}</h3>
             </div>
         </div>
     `

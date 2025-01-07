@@ -1,5 +1,8 @@
 async function fetchCSV(url){
-    const res = await fetch(url);
+    const res = await fetch(url,{
+        cache: 'no-store' 
+      });
+
     const data = await res.text();
     const rows = data.split('\n');
     
@@ -21,20 +24,21 @@ async function fetchCSV(url){
 }
 
 
-async function htmlGenerator(data){
-    let htmlString = `
-        <div class="card">
-            <img class="card-img-top" src="https://placehold.co/200x100" alt="Card image">
+function cardGenerator(data){
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('col', 'mb-5');
+    newDiv.innerHTML = `
+        <div class="card h-100">
+            <img loading="lazy" class="card-img-top" src="https://placehold.co/200x200" alt="Card image">
             <div class="card-body">
                 <h4 class="card-title">${data.Description}</h4>
-                <p class="card-text">${data.SKU}</p>
-                <p class="card-text">${data.QOH}</p>
-                <p class="card-text">${data.Retail}</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
+                <p class="card-text">SKU: ${data.SKU}</p>
+                <p class="card-text">Quantity On Hand: ${data.QOH}</p>
+                <p class="card-text">Price : $${data.Retail}</p>
             </div>
         </div>
     `
-    const mainEl = document.querySelector("#main div");
-    mainEl.innerHTML = mainEl.innerHTML + htmlString;
+    return newDiv
+    
 }
 

@@ -37,7 +37,7 @@ function cardGenerator(data){
  		    	<p class="card-text">SKU: ${data.SKU}</p>
 		    </div>
 	            <div class="col">
- 		    	<p class="card-text">Quantity: ${data.QOH}</p>
+ 		    	<p class="card-text">Qty: ${data.QOH}</p>
 		    </div>		
 		</div>
                 <p class="card-subtitle">Price : $${data.Retail}</p>
